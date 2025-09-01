@@ -1,0 +1,9 @@
+# Ignore video files larger than 100MB
+assets/video/BEFORE AND AFTER.mp4
+*.mp4
+*.zip
+
+# Ignore OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/

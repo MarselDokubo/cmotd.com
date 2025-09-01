@@ -1,0 +1,81 @@
+:root {
+    --font-base: 'Mullish', sans-serif;
+    --font-base: 'IBM Plex Sans';
+    --font-base: 'Nebula'
+
+    --color-dark-blue: #0A2342;
+    --color-primary: #007BFF;
+    --color-primary-hover: #0056b3;
+    --color-white: #ffffff;
+
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@font-face {
+    font-family: 'Minimal';
+    src: url('../assets/font/minimal/minimal.otf');
+}
+
+@font-face {
+    font-family: 'Futured';
+    src: url('../assets/font/Futured.TTF');
+}
+
+@font-face {
+    font-family: 'Nebula';
+    src: url('../assets/font/Nebula-Regular.otf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: var(--font-base);
+    font-optical-sizing: auto;
+}
+
+h1,h2,h3,h4,h5 {
+font-family: 'Futured', serif;
+}
+
+.bg-hero {
+    background-image: url("image-container-ship.png");
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.bg-dark-blue {
+    background-color: var(--color-dark-blue);
+}
+
+.text-dark-blue {
+    color: var(--color-dark-blue);
+}
+
+.btn-primary {
+
+}
+
+.btn-primary:hover {
+    text-decoration: underline;
+}
+
+.btn-outline-primary {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.tab-active {
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}

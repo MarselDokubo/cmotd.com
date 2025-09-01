@@ -1,0 +1,34 @@
+  .background {
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
+  }
+  .background.active {
+    opacity: 1;
+    z-index: 0;
+  }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+.explore span:first-child {
+  margin-bottom: 1px;
+  margin-right: 1px;
+}
+  .explore:hover span:first-child{
+    border-bottom: 2px solid white;
+    margin-bottom: 0px;
+    margin-left: 0px;
+
+  }
+  .explore:hover > span {
+    margin-left: 4px;
+    text-decoration: none;
+  }
+
