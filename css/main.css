@@ -3,15 +3,12 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(30, 64, 175, 0.95); /* blue-900 with opacity */
+  background: linear-gradient(180deg, rgba(18, 17, 93, 0.4) 0%, #03015b 100%);
   z-index: 20;
   border-radius: 0;
+
 }
-/* Mobile menu overlay blur effect */
-#mobileMenuOverlay {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
+
   .background {
     opacity: 0;
     transition: opacity 1s ease;
