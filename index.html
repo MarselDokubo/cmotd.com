@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <title>Center for Marine and Offshore Technology Development — Official Website</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,46 +17,80 @@
         <link rel="stylesheet" href="css/utils.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-gray-100 overflow-x-hidden">
         <header class="backdrop-blur-sm text-white fixed top-0 left-0 w-full z-30">
             <div class="relative w-full h-full">
                 <div class="absolute top-0 left-0 w-full h-full bg-dark-blue -z-10 transition-opacity duration-300 ease-in-out" id="header-bg"></div>
-                <div class="mx-auto px-16 py-3 flex items-center justify-between w-full">
-                    <div class="logo-home">
-                        <img src="./assets/logos/logo_transparent.png" alt="Company Logo" height="100 " width="100" class="size-18 -mt-1">
+                <div class="md:mx-auto px-2 md:px-16 py-3 flex items-center justify-between w-full">
+                    <div class="logo-home z-40">
+                        <img src="./assets/logos/logo_transparent.png" alt="Company Logo" class="object-cover h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 -mt-1">
                     </div>
-                    <nav class="">
-                        <div class="mx-auto px-4">
+                    <!-- Hamburger for mobile -->
+                    <button id="mobileMenuBtn" class="sm:hidden z-40 p-2 focus:outline-none" aria-label="Open menu">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <!-- Desktop nav links -->
+                    <nav class="hidden sm:block">
+                        <div class="mx-auto">
                             <div class="flex items-center justify-between">
-                                <div class="flex space-x-6 py-3 text-sm">
+                                <div class="flex flex-wrap space-x-2 sm:space-x-6 py-2 sm:py-3 text-xs sm:text-sm">
                                     <a class="hover:text-blue-300 uppercase" href="index.html">Home</a>
                                     <a class="hover:text-blue-300 uppercase" href="about.html">About</a>
                                     <a class="hover:text-blue-300 uppercase" href="news.html">News</a>
                                     <a class="hover:text-blue-300 uppercase" href="programmes.html">Programmes</a>
-                                    <a class="hover:text-blue-300 uppercase" href="partners.html">Parnters</a>
+                                    <a class="hover:text-blue-300 uppercase" href="partners.html">Partners</a>
                                 </div>
                             </div>
                         </div>
                     </nav>
-                    <div class="contact">
-                        <a class="hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 ease-in-out text-sm uppercase border-gray-100 border-2 p-4" href="contact.html">Contact Us</a>
+                    <div class="contact hidden sm:block">
+                        <a class="hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 ease-in-out text-xs sm:text-sm uppercase border-gray-100 border-2 p-2 sm:p-4" href="contact.html">Contact Us</a>
+                    </div>
+                    <!-- Mobile menu overlay -->
+                    <div id="mobileMenuOverlay" class="fixed inset-0 bg-blue-600 z-50 hidden flex-col items-center justify-center px-6 transition-all duration-300 ease-in-out">
+        <div class="flex flex-col items-center space-y-8 w-full max-w-xs mx-auto">
+            <div class="logo-home mb-8">
+                <img src="./assets/logos/logo_transparent.png" alt="Company Logo" class="object-cover h-16 w-16">
+            </div>
+            <nav class="flex flex-col items-center space-y-6 text-xl w-full">
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="index.html">Home</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="about.html">About</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="news.html">News</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="programmes.html">Programmes</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="partners.html">Partners</a>
+            </nav>
+            <a class="mt-8 bg-blue-600 text-white px-6 py-3 rounded uppercase font-semibold w-full text-center" href="contact.html">Contact Us</a>
+            <div class="flex space-x-4 mt-8">
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="Facebook">
+                    <span class="material-icons text-2xl">facebook</span>
+                </a>
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="Twitter">
+                    <svg aria-hidden="true" class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.9-.53 1.59-1.37 1.92-2.38-.84.5-1.78.86-2.79 1.07C18.26 4.41 17.01 4 15.63 4c-2.62 0-4.75 2.12-4.75 4.75 0 .37.04.73.12 1.08-3.95-.2-7.45-2.08-9.8-4.97-.41.7-.64 1.51-.64 2.38 0 1.64.84 3.08 2.12 3.92-.78-.02-1.51-.24-2.15-.59v.06c0 2.29 1.63 4.2 3.79 4.64-.4.11-.82.17-1.25.17-.3 0-.6-.03-.88-.08.6 1.87 2.34 3.24 4.4 3.28-1.62 1.27-3.66 2.03-5.89 2.03-.38 0-.76-.02-1.13-.07 2.1 1.35 4.6 2.14 7.29 2.14 8.74 0 13.51-7.25 13.51-13.51 0-.21 0-.41-.02-.62.93-.67 1.72-1.51 2.35-2.44z"></path></svg>
+                </a>
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="LinkedIn">
+                    <span class="material-icons text-2xl">linkedin</span>
+                </a>
+            </div>
+            <button id="closeMobileMenu" class="mt-8 text-white text-2xl" aria-label="Close menu">&times;</button>
+        </div>
                     </div>
                 </div>
             </div>
         </header>
         <section class="hero h-fourth-screen bg-black text-white bg-hero">
-           <div class="container h-full" style="max-width: 900px;">
+           <div class="container h-full px-4 sm:px-8" style="max-width: 900px;">
             <div class="hero-text h-full flex flex-col gap-6 justify-center items-center relative z-10">
-                <h1 class="heading  text-6xl font-semibold max-w-4xl uppercase leading-tight">
+                <h1 class="heading text-5xl sm:text-5xl md:text-6xl font-semibold max-w-4xl uppercase leading-tight text-center md:text-left">
                     Empowering the Future of Marine and Offshore Technology
                 </h1>
-                <a href="programmes.html" class="bg-blue-600 hover:bg-white hover:text-blue-600 p-4 px-10 self-start transition-all delay-100 duration-300 ease-in-out btn-primary" style="text-decoration: none; font-weight: 900;">Learn More</a>
+                <a href="programmes.html" class="bg-blue-600 hover:bg-white hover:text-blue-600 p-2 px-6 sm:p-4 sm:px-10 self-center md:self-start transition-all delay-100 duration-300 ease-in-out btn-primary" style="text-decoration: none; font-weight: 900;">Learn More</a>
             </div>
            </div> 
-
         </section>
-        <section class="bg-white relative z-10 shadow-lg mx-auto max-w-7xl -mt-16">
-            <div class="grid grid-cols-2 md:grid-cols-5">
+        <section class="bg-white relative z-10 md:shadow-lg mx-auto max-w-7xl -mt-16">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
                 <button class="flex flex-col items-center justify-center p-8 text-center text-blue-500 hover:bg-blue-600 hover:text-white rounded-tl-lg border border-2 border-white transition-all duration-300 ease-in-out">
                     <span class="material-icons text-4xl mb-2">engineering</span>
                     <span class="service font-semibold text-gray-700 transition-all duration-300 ease-in-out">CLASS WELDING</span>
@@ -73,14 +107,13 @@
                     <span class="material-icons text-4xl mb-2">oil_barrel</span>
                     <span class="service font-semibold text-gray-700 hover:text-white transition-all duration-300 ease-in-out">OIL WELL OPTIMIZATION</span>
                 </button>
-
                 <button class="flex flex-col items-center justify-center p-6 text-center text-blue-500 hover:bg-blue-600 hover:text-white rounded-br-lg md:rounded-none border border-2 border-white transition-all duration-300 ease-in-out">
                     <span class="material-icons text-4xl mb-2">electrical_services</span>
                     <span class="service font-semibold text-gray-700 hover:text-white transition-all duration-300 ease-in-out">ELECTRICAL POWER & TRANSFORMER</span>
                 </button>
             </div>
         </section>
-        <section class="py-16 bg-gray-50 mt-12">
+                <section class="py-16 bg-gray-50 mt-12 hidden md:block">
             <div class="container px-4">
             <h2 class="text-4xl font-bold text-center text-dark-blue mb-4 uppercase">Who We Are</h2>
                     <div class="flex justify-center mb-12 space-x-4">
@@ -133,11 +166,64 @@
                 </div>
             </div>
         </section>
+        <section class="py-16 bg-gray-50 mt-12 md:hidden">
+            <div class="md:container ">
+            <h2 class="text-4xl font-bold text-center text-dark-blue mb-4 uppercase">Who We Are</h2>
+                    <div class="flex justify-center mb-12 space-x-4">
+                        <button data-index="0" class="tab-btn px-6 py-2 text-blue-600 border-b-2 border-blue-600 font-semibold uppercase">Our Commitment</button>
+                        <button data-index="1" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Objective</button>
+                        <button data-index="2" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Values</button>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center relative overflow-hidden overlay ">
+                        <div class="bg-1 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/automation.webp" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="bg-2 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/engineer-3a.jpg" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="bg-3 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/engineer-4.webp" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div id="carouselWrapper" class="relative w-full max-w-full md:w-[650px] overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-4 sm:space-x-8 md:py-6  py-0 pt-18 md:py-14 ml-0 sm:ml-12 scrollbar-hide">
+                            <div id="carouselTrack" class="carousel flex items-center relative z-10 scrollbar-hide">
+                                <div id="commitment" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since its inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for its state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                                <div id="objective" class="snap-start w-full md:max-w-[80vw] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Empowering Offshore Excellence</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering is committed to providing a base with the needed up-to-date technology, requisite knowledge and skilled resource groups that will be available to carry out studies and research effectively. Offering a forum where university and industry professionals can collaborate and interact to share knowledge and develop skills and also training Marine and Offshore Engineering graduates that will have the skills and competences required for effective performance at the workplace at the end of their training </span>
+                                    </p>
+                                </div>
+                                <div id="values" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Driven by Purpose & Principle</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">At the heart of our mission are core values</span> that define our approach to education, research, and professional engagement. We uphold excellence in all our endeavors, setting high standards across academic and technical pursuits. We foster a culture of innovation, encouraging creative thinking and the advancement of new technologies. With integrity as a cornerstone, we remain committed to ethical conduct, transparency, and accountability. Through collaboration, we build strong partnerships with industry, academia, and government to drive progress. Above all, we champion sustainability, embracing practices that protect the environment and support long-term development.
+                                    </p>
+                                </div>
+                                <div id="" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since its inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for its state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
         <section class="py-16 bg-white">
-            <div class="container mx-auto">
+            <div class="container mx-auto ">
                 <div class="">
                 <div class="mb-8">
-                    <div class="bg-dark-blue p-6 flex items-center mb-8">
+                    <div class="bg-dark-blue p-4 md:p-6 flex items-center mb-8">
                         <span class="material-icons text-4xl text-white">chevron_right</span>
                         <h2 class="text-2xl text-white uppercase">Our Facilities</h2>
                     </div>
@@ -167,10 +253,10 @@
             </div>
         </div>
         </section>
-        <section class="py-16">
-            <div class="container px-4">
-                <div class="flex flex-col md:flex-row items-center relative h-fourth-screen overflow-hidden bg-black/50">
-                    <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+        <section class="md:py-16">
+            <div class="md:container px-6 md:px-8">
+                <div class="flex flex-col md:flex-row items-center relative md:h-fourth-screen  overflow-hidden bg-black/50">
+                    <video class="w-full h-auto object-cover aspect-video" autoplay muted loop playsinline>
                         <source src="./assets/video/BEFORE AND AFTER.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -179,7 +265,7 @@
             </div>
         </section>
         <section class="py-16 bg-white">
-            <div class="container mx-auto">
+            <div class="container mx-auto ">
                 <div class="">
                 <div class="mb-8">
                     <div class="bg-dark-blue p-6 flex items-center justify-center mb-8">
@@ -206,7 +292,7 @@
             </div>
         </div>
         </section>
-        <section class="py-16 bg-gray-50">
+                <section class="py-16 bg-gray-50 hidden md:block">
             <div class="container px-4">
                     <div class="flex flex-col md:flex-row items-end justify-center relative h-third-screen overflow-hidden bg-[url('assets/img/engineer-team.png')] bg-center bg-size[130%] overlay">
                         <div class="absolute inset-0 bg-black/50">
@@ -224,9 +310,26 @@
                 </div>
             </div>
         </section>
+        <section class="team py-16 bg-gray-50 md:hidden">
+            <div class="container px-2 sm:px-4">
+                <div class="flex flex-col md:flex-row items-end justify-center relative h-auto md:h-third-screen overflow-hidden bg-[url('assets/img/engineer-team.png')] bg-center bg-size[130%] overlay">
+                    <div class="absolute inset-0 bg-black/50"></div>
+                    <div id="carouselWrapper" class="relative w-full max-w-full md:w-[650px] overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-4 sm:space-x-8  ml-0 md:ml-12 scrollbar-hide">
+                        <div id="carouselTrack" class="carousel flex items-center justify-center relative z-10 scrollbar-hide">
+                            <div id="commitment" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-8 bg-white/90 flex flex-col justify-center h-[40vh]">
+                                <h2 class="text-2xl sm:text-3xl uppercase">Our Team</h2>
+                                <span class="w-24 sm:w-40 bg-blue-600 my-2" style="height: 3px;"></span>
+                                <p class="text-gray-600 leading-loose text-dark-blue text-center md:text-left">Our team comprises erudite academics and industrial experts, seasoned professionals, and innovative researchers. Each member of our team is dedicated to providing top-tier education and training, fostering an environment of learning and development.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="bg-dark-blue text-white py-16" style="background-image: url('image-world-map-transparent.png'); background-repeat: no-repeat; background-position: right bottom; background-size: contain;">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row items-center">
+            <div class="container mx-auto ">
+                <div class="flex flex-col md:flex-row md:items-center">
                     <div class="md:w-1/3 mb-12 md:mb-0 md:pr-12 relative h-28 overflow-hidden">
                     <div id="headingSlider" class="absolute top-0 left-0 w-full transition-transform duration-700 ease-in-out">
                         <h2 class="text-4xl font-bold h-[112px]">Unmatched Services. Unmatched Excellence.</h2>
@@ -284,33 +387,33 @@
                 </div>
             </div>
         </section>
-        <section class="newsletter relative bg-[url('assets/img/engineer-1.jpg')] bg-blend-multiply bg-fixed bg-cover bg-center text-white">
-            <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-                <div class="relative z-10 flex justify-center container py-12">
-                <div class="flex flex-col items-center">
-                    <div class="form-heading my-8 text-center">
-                        <h3 class="text-5xl mb-4">Stay Updated</h3>
-                        <p class="text-xl">Stay up to date on our events, news and more.</p>
+        <section class="newsletter relative bg-[url('assets/img/engineer-1.jpg')] bg-blend-multiply bg-fixed bg-cover bg-center text-white px-8">
+        <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+        <div class="relative z-10 flex justify-center py-8 sm:py-12">
+            <div class="flex flex-col items-center w-full max-w-lg px-4 sm:px-8 md:px-12 lg:px-0">
+                <div class="form-heading my-8 text-center">
+                    <h3 class="text-3xl sm:text-5xl mb-4">Stay Updated</h3>
+                    <p class="text-base sm:text-xl">Stay up to date on our events, news and more.</p>
+                </div>
+                <form action="https://formspree.io/f/xwpnqnrj" method="POST" class="form-inputs w-full max-w-md mx-auto">
+                    <div class="input-field flex flex-col mt-4">
+                        <label for="name">Name *</label>
+                        <input type="text" name="name" id="name" class="border rounded w-full p-2 bg-white text-dark-blue" required>
                     </div>
-                    <form action="https://formspree.io/f/xwpnqnrj" method="POST" class="form-inputs max-w-md">
-                        <div class="input-field flex flex-col mt-4">
-                            <label for="name">Name *</label>
-                            <input type="text" name="name" id="name" class="border w-md p-2 bg-white text-dark-blue" required>
-                        </div>
-                        <div class="input-field flex flex-col mt-4">
-                            <label for="email">Email Address *</label>
-                            <input type="email" name="email" id="email" class="border w-md p-2 bg-white text-dark-blue" required>
-                        </div>
-                        <label for="agreement" class="agreement flex gap-4 items-center my-4">
-                            <input type="checkbox" name="agreement" id="agreement">I agree to receive notifications, updates, publications, alerts and newsletters from the CMOTD.
-                        </label>
-                        <button type="submit" class="my-4 bg-blue-600 text-white p-3 px-8">Subscribe</button>
-                    </form>
-                </div>          
+                    <div class="input-field flex flex-col mt-4">
+                        <label for="email">Email Address *</label>
+                        <input type="email" name="email" id="email" class="border rounded w-full p-2 bg-white text-dark-blue" required>
+                    </div>
+                    <label for="agreement" class="agreement flex gap-4 items-center my-4">
+                        <input type="checkbox" name="agreement" id="agreement">I agree to receive notifications, updates, publications, alerts and newsletters from the CMOTD.
+                    </label>
+                    <button type="submit" class="my-4 bg-blue-600 text-white p-3 px-8 rounded">Subscribe</button>
+                </form>
             </div>
+        </div>
         </section>
         <footer class="bg-gray-800 text-gray-400 py-16">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto ">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
                         <img alt="Ocean Crown Footer Logo" class="h-10 mb-4" src="./assets/logos/logo_blue.jpg"/>
@@ -511,10 +614,29 @@
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
                 const progress = Math.min(scrollY / maxScroll, 1); 
-
-                
                 headerBg.style.opacity = progress;
             });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+            function openMobileMenu() {
+                mobileMenuOverlay.classList.remove('hidden');
+                mobileMenuOverlay.classList.add('flex', 'bg-blue-900', 'bg-opacity-90');
+            }
+            function closeMenu() {
+                mobileMenuOverlay.classList.add('hidden');
+                mobileMenuOverlay.classList.remove('flex', 'bg-blue-900', 'bg-opacity-90');
+            }
+            if (mobileMenuBtn && mobileMenuOverlay && closeMobileMenu) {
+                mobileMenuBtn.addEventListener('click', openMobileMenu);
+                closeMobileMenu.addEventListener('click', closeMenu);
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) closeMenu();
+                });
+            }
         </script>
     </body>
 </html>

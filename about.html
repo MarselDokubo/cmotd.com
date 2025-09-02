@@ -17,51 +17,86 @@
         <link rel="stylesheet" href="css/utils.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body class="bg-gray-100">
-        <header class="backdrop-blur-sm text-white fixed top-0 left-0 w-full z-30">
+    <body class="bg-gray-100 overflow-x-hidden">
+         <header class="backdrop-blur-sm text-white fixed top-0 left-0 w-full z-30">
             <div class="relative w-full h-full">
                 <div class="absolute top-0 left-0 w-full h-full bg-dark-blue -z-10 transition-opacity duration-300 ease-in-out" id="header-bg"></div>
-                <div class="mx-auto px-16 py-3 flex items-center justify-between w-full">
-                    <div class="logo-home">
-                        <img src="./assets/logos/logo_transparent.png" alt="Company Logo" height="100 " width="100" class="size-18 -mt-1">
+                <div class="w-full px-2 md:px-16 py-3 flex items-center justify-between">
+                    <div class="logo-home z-40">
+                        <img src="./assets/logos/logo_transparent.png" alt="Company Logo" class="object-cover h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 -mt-1">
                     </div>
-                    <nav class="">
-                        <div class="mx-auto px-4">
+                    <!-- Hamburger for mobile -->
+                    <button id="mobileMenuBtn" class="sm:hidden z-40 p-2 focus:outline-none" aria-label="Open menu">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <!-- Desktop nav links -->
+                    <nav class="hidden sm:block">
+                        <div class="mx-auto">
                             <div class="flex items-center justify-between">
-                                <div class="flex space-x-6 py-3 text-sm">
+                                <div class="flex flex-wrap space-x-2 sm:space-x-6 py-2 sm:py-3 text-xs sm:text-sm">
                                     <a class="hover:text-blue-300 uppercase" href="index.html">Home</a>
                                     <a class="hover:text-blue-300 uppercase" href="about.html">About</a>
                                     <a class="hover:text-blue-300 uppercase" href="news.html">News</a>
                                     <a class="hover:text-blue-300 uppercase" href="programmes.html">Programmes</a>
-                                    <a class="hover:text-blue-300 uppercase" href="partners.html">Parnters</a>
+                                    <a class="hover:text-blue-300 uppercase" href="partners.html">Partners</a>
                                 </div>
                             </div>
                         </div>
                     </nav>
-                    <div class="contact">
-                        <a class="hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 ease-in-out text-sm uppercase border-gray-100 border-2 p-4" href="contact.html">Contact Us</a>
+                    <div class="contact hidden sm:block">
+                        <a class="hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 ease-in-out text-xs sm:text-sm uppercase border-gray-100 border-2 p-2 sm:p-4" href="contact.html">Contact Us</a>
+                    </div>
+                    <!-- Mobile menu overlay -->
+                    <div id="mobileMenuOverlay" class="fixed inset-0 right-0 z-50 hidden flex-col items-start justify-start px-0 transition-all duration-300 ease-in-out transform translate-x-full" style="position:fixed;" id="mobileMenuOverlay">
+    <div class="flex flex-col items-start space-y-8 w-full max-w-xs mx-auto px-6 pt-12">
+            <div class="logo-home mb-8">
+                <img src="./assets/logos/logo_transparent.png" alt="Company Logo" class="object-cover h-16 w-16">
+            </div>
+            <nav class="flex flex-col items-start space-y-6 text-xl w-full">
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="index.html">Home</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="about.html">About</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="news.html">News</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="programmes.html">Programmes</a>
+                <a class="hover:text-blue-300 uppercase w-full text-center py-2" href="partners.html">Partners</a>
+            </nav>
+            <a class="mt-8 bg-blue-600 text-white px-6 py-3 rounded uppercase font-semibold w-full text-center" href="contact.html">Contact Us</a>
+            <div class="flex space-x-4 mt-8">
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="Facebook">
+                    <span class="material-icons text-2xl">facebook</span>
+                </a>
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="Twitter">
+                    <svg aria-hidden="true" class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.9-.53 1.59-1.37 1.92-2.38-.84.5-1.78.86-2.79 1.07C18.26 4.41 17.01 4 15.63 4c-2.62 0-4.75 2.12-4.75 4.75 0 .37.04.73.12 1.08-3.95-.2-7.45-2.08-9.8-4.97-.41.7-.64 1.51-.64 2.38 0 1.64.84 3.08 2.12 3.92-.78-.02-1.51-.24-2.15-.59v.06c0 2.29 1.63 4.2 3.79 4.64-.4.11-.82.17-1.25.17-.3 0-.6-.03-.88-.08.6 1.87 2.34 3.24 4.4 3.28-1.62 1.27-3.66 2.03-5.89 2.03-.38 0-.76-.02-1.13-.07 2.1 1.35 4.6 2.14 7.29 2.14 8.74 0 13.51-7.25 13.51-13.51 0-.21 0-.41-.02-.62.93-.67 1.72-1.51 2.35-2.44z"></path></svg>
+                </a>
+                <a class="text-gray-300 hover:text-white" href="#" aria-label="LinkedIn">
+                    <span class="material-icons text-2xl">linkedin</span>
+                </a>
+            </div>
+            <button id="closeMobileMenu" class="mt-8 text-white text-2xl" aria-label="Close menu">&times;</button>
+        </div>
                     </div>
                 </div>
             </div>
         </header>
-        <section class="relative hero h-third-screen bg-black text-white bg-[url('assets/img/cmotd_office.jpg')] bg-center bg-size-[100%]" style="height:70vh;">
-            <div class="bg-black/60 absolute inset-0"></div>
-           <div class="container h-full" style="max-width: 900px;">
-            <div class="hero-text h-full flex flex-col gap-6 justify-center items-center relative z-10">
-                <h1 class="heading  text-6xl font-semibold max-w-4xl uppercase leading-tight">
+        <section class="relative hero bg-black text-white bg-[url('assets/img/cmotd_office.jpg')] bg-center bg-size-[100%] md:h-[70vh]" style="background-repeat: no-repeat;">
+        <div class="bg-black/60 absolute inset-0"></div>
+        <div class="container h-full px-4 sm:px-8 md:px-0" style="max-width: 900px;">
+            <div class="hero-text h-full flex flex-col gap-4 sm:gap-6 justify-center items-center max-w-4xl w-full relative z-10 py-12 sm:py-20 md:py-0">
+                <h1 class="heading text-5xl md:text-6xl font-semibold uppercase leading-tight text-left">
                     Driving innovation since 2018
                 </h1>
-                <a href="" class="bg-blue-600 hover:bg-white hover:text-blue-600 p-4 px-10 self-start transition-all delay-100 duration-300 ease-in-out btn-primary font-bold" style="text-decoration: none; font-weight: 900;">Learn More</a>
+                <a href="" class="bg-blue-600 hover:bg-white hover:text-blue-600 py-3 sm:py-4 px-6 sm:px-10 self-start transition-all delay-100 duration-300 ease-in-out btn-primary font-bold text-base sm:text-lg" style="text-decoration: none; font-weight: 900;">Learn More</a>
             </div>
-           </div> 
+        </div>
         </section>
         <section class="introduction container mx-auto">
-            <div class="grid grid-cols-3 mt-18">
+            <div class="grid grid-cols-1 md:grid-cols-3 mt-18">
                 <div class="heading flex flex-col justify-center">
-                    <h2 class="font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 uppercase text-3xl">Centre for Marine and Offshore Technology Development</h2>
-                    <p class="title px-4">Introduction</p>
+                    <h2 class="font-bold leading-tight tracking-[-0.015em] md:px-4 pb-3 pt-5 uppercase text-3xl">Centre for Marine and Offshore Technology Development</h2>
+                    <p class="title md:px-4">Introduction</p>
                 </div>
-                <p class="col-span-2 font-normal leading-normal pb-3 pt-1 px-4 container leading-loose text-lg">
+                <p class="md:col-span-2 md:font-normal leading-normal pb-3 pt-1 md:px-4 md:container md:leading-loose md:text-lg">
                     The Centre of Excellence in Marine and Offshore Engineering was commissioned on Thursday, 1st June, 2017 and academic activities started in April, 2018 with the first set of ten (10) students. The Centre was set up by Shell Petroleum Development Company as a new initiative in its University Assistance Programme, to strengthen the intervention strategies from ‘within’ the university environment. Domiciling the Centre of Excellence within the university environment will also serve as a rallying point for research and development, and sponsored discipline experts (sabbaticals, Professorial Chairs, etc) of the company and the Joint Venture partners which include The Nigerian National Petroleum Company (NNPC), Total Exploration and Production Nigeria (TEPNG) and the Nigerian Agip Oil Company (NAOC).
 
                     It is expected that this effort will within a short time attract support of other stake holders and broaden the collaboration to include players in offshore oil and gas sector, and maritime companies operating in Nigeria, as well as those providing consultancy and other specialized services across the spectrum of the maritime industry. 
@@ -70,7 +105,113 @@
                 </p>
             </div>
         </section>
-        <section class="py-16 bg-gray-50 mt-12">
+        <section class="py-16 bg-gray-50 mt-12 md:hidden">
+            <div class="md:container ">
+            <h2 class="text-4xl font-bold text-center text-dark-blue mb-4 uppercase">Who We Are</h2>
+                    <div class="flex justify-center mb-12 space-x-4">
+                        <button data-index="0" class="tab-btn px-6 py-2 text-blue-600 border-b-2 border-blue-600 font-semibold uppercase">Our Commitment</button>
+                        <button data-index="1" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Objective</button>
+                        <button data-index="2" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Values</button>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center relative overflow-hidden overlay ">
+                        <div class="bg-1 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/automation.webp" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="bg-2 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/engineer-3a.jpg" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div class="bg-3 background absolute inset-0 w-full h-full">
+                            <img src="assets/img/engineer-4.webp" alt="Oil & Gas Engineer" class="object-cover w-full h-full" />
+                        </div>
+                        <div id="carouselWrapper" class="relative w-full max-w-full md:w-[650px] overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-4 sm:space-x-8 md:py-6  py-0 pt-18 md:py-14 ml-0 sm:ml-12 scrollbar-hide">
+                            <div id="carouselTrack" class="carousel flex items-center relative z-10 scrollbar-hide">
+                                <div id="commitment" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since its inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for its state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                                <div id="objective" class="snap-start w-full md:max-w-[80vw] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Empowering Offshore Excellence</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering is committed to providing a base with the needed up-to-date technology, requisite knowledge and skilled resource groups that will be available to carry out studies and research effectively. Offering a forum where university and industry professionals can collaborate and interact to share knowledge and develop skills and also training Marine and Offshore Engineering graduates that will have the skills and competences required for effective performance at the workplace at the end of their training </span>
+                                    </p>
+                                </div>
+                                <div id="values" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center h-[90vh] md:h-full" >
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Driven by Purpose & Principle</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">At the heart of our mission are core values</span> that define our approach to education, research, and professional engagement. We uphold excellence in all our endeavors, setting high standards across academic and technical pursuits. We foster a culture of innovation, encouraging creative thinking and the advancement of new technologies. With integrity as a cornerstone, we remain committed to ethical conduct, transparency, and accountability. Through collaboration, we build strong partnerships with industry, academia, and government to drive progress. Above all, we champion sustainability, embracing practices that protect the environment and support long-term development.
+                                    </p>
+                                </div>
+                                <div id="" class="snap-start w-full md:w-[100%] flex-shrink-0 text-base sm:text-lg relative z-10 px-4 sm:px-8 py-8 sm:py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-2xl sm:text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-32 sm:w-96 bg-blue-600 my-2" style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class="mb-4 text-base sm:text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since its inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for its state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 bg-gray-50 mt-12 hidden md:block">
+            <div class="container px-4">
+            <h2 class="text-4xl font-bold text-center text-dark-blue mb-4 uppercase">Who We Are</h2>
+                    <div class="flex justify-center mb-12 space-x-4">
+                        <button data-index="0" class="tab-btn px-6 py-2 text-blue-600 border-b-2 border-blue-600 font-semibold uppercase">Our Commitment</button>
+                        <button data-index="1" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Objective</button>
+                        <button data-index="2" class="tab-btn px-6 py-2 text-gray-600 uppercase">Our Values</button>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center relative h-fourth-screen overflow-hidden overlay ">
+                        <div class="bg-1 background absolute inset-0 w-full">
+                            <img src="assets/img/automation.webp" alt="Oil & Gas Engineer" class="object-cover w-full">
+                        </div>
+                        <div class="bg-2 background absolute inset-0 w-full">
+                            <img src="assets/img/engineer-3a.jpg" alt="Oil & Gas Engineer" class="object-cover w-full">
+                        </div>
+                        <div class="bg-3 background absolute inset-0 w-full">
+                            <img src="assets/img/engineer-4.webp" alt="Oil & Gas Engineer" class="object-cover w-full">
+                        </div>
+                        <div id="carouselWrapper" class="relative w-[650px] overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-8 py-14 ml-12 scrollbar-hide">
+                            <div id="carouselTrack" class="carousel flex items-center relative z-10 scrollbar-hide">
+                                <div id="commitment" class="snap-start w-[100%] flex-shrink-0 text-lg relative z-10 px-8 py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-96 bg-blue-600 my-2 " style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class=" mb-4 text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since it's inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for it's state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                                <div id="objective" class="snap-start w-[100%] flex-shrink-0 text-lg relative z-10 px-8 py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-3xl uppercase">Empowering Offshore Excellence</h2>
+                                    <span class="w-96 bg-blue-600 my-2 " style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class=" mb-4 text-lg">The center of excellence in Marine & Offshore Engineering is committed to providing a base with the needed up-to-date technology, requisite knowledge and skilled resource groups that will be available to carry out studies and research effectively. Offering a forum where university and industry professionals can collaborate and interact to share knowledge and develop skills and also training Marine and Offshore Engineering graduates that will have the skills and competences required for effective performance at the workplace at the end of their training </span>
+                                    </p>
+                                </div>
+                                <div id="values" class="snap-start w-[100%] flex-shrink-0 text-lg relative z-10 px-8 py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-3xl uppercase">Driven by Purpose & Principle</h2>
+                                    <span class="w-96 bg-blue-600 my-2 " style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class=" mb-4 text-lg">At the heart of our mission are core values</span> that define our approach to education, research, and professional engagement. We uphold excellence in all our endeavors, setting high standards across academic and technical pursuits. We foster a culture of innovation, encouraging creative thinking and the advancement of new technologies. With integrity as a cornerstone, we remain committed to ethical conduct, transparency, and accountability. Through collaboration, we build strong partnerships with industry, academia, and government to drive progress. Above all, we champion sustainability, embracing practices that protect the environment and support long-term development.
+                                    </p>
+                                </div>
+                                <div id="" class="snap-start w-[100%] flex-shrink-0 text-lg relative z-10 px-8 py-14 bg-white/90 flex flex-col justify-center" style="height:90%;">
+                                    <h2 class="text-3xl uppercase">Advancing Engineering Expertise for the Offshore Industry</h2>
+                                    <span class="w-96 bg-blue-600 my-2 " style="height: 3px;"></span>
+                                    <p class="text-gray-600 mb-4 leading-loose text-dark-blue">
+                                        <span class=" mb-4 text-lg">The center of excellence in Marine & Offshore Engineering,</span> established within the prestigious Rivers State University in Port Harcourt Nigeria, is dedicated to the development of highly skilled postgraduate engineers. Since it's inception in 2018, the Center has rapidly evolved to become one of Nigeria's premiere technical and engineering institutions, specifically catering to the offshore oil & gas industry. Our center is a beacon of excellence, renowned for it's state-of-the-art facilities, comprehensive training program, and a team of highly qualified professionals.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="py-16 bg-gray-50 mt-12">
             <div class="container px-4">
             <h2 class="text-4xl font-bold text-center text-dark-blue mb-4 uppercase">Who We Are</h2>
                     <div class="flex justify-center mb-12 space-x-4">
@@ -122,9 +263,9 @@
                         </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="container py-20">
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="hoo-profile">
                     <figure class="w-full max-w-sm mx-auto text-center flex flex-col items-center -mt-6">
                     <picture class="block overflow-hidden rounded-full relative w-64 h-64 aspect-square">
@@ -224,12 +365,12 @@
             </div>
             </div>
         </section>
-        <section class="container mx-auto py-12">
+        <section class="px-4 md:container mx-auto py-12">
             <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Our Team</h2>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
               <div class="flex flex-col gap-3 pb-3">
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style='background-image: url("assets/img/staff/Engr-Founder.jpg"); background-position: top'
                 ></div>
                 <div>
@@ -239,7 +380,7 @@
               </div>
               <div class="flex flex-col gap-3 pb-3">
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover "
                   style='background-image: url("assets/img/staff/Engr.\ Vitalis.jpg"); background-position: top'
                 ></div>
                 <div>
@@ -249,7 +390,7 @@
               </div>
               <div class="flex flex-col gap-3 pb-3">
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover "
                   style='background-image: url("assets/img/staff/Engr.\ Akparanma.jpg"); background-position: top'
                 ></div>
                 <div>
@@ -329,7 +470,7 @@
                 </div>
             </div>
         </footer>
-                <script>
+        <script>
         const track = document.getElementById('carouselTrack');
         const wrapper = document.getElementById('carouselWrapper');
         const slides = track.children;
@@ -462,10 +603,33 @@
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
                 const progress = Math.min(scrollY / maxScroll, 1); 
-
-                
                 headerBg.style.opacity = progress;
             });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+            function openMobileMenu() {
+                mobileMenuOverlay.classList.remove('hidden');
+                mobileMenuOverlay.classList.add('flex');
+                mobileMenuOverlay.classList.remove('translate-x-full');
+                mobileMenuOverlay.classList.add('translate-x-0');
+            }
+            function closeMenu() {
+                mobileMenuOverlay.classList.add('hidden');
+                mobileMenuOverlay.classList.remove('flex');
+                mobileMenuOverlay.classList.remove('translate-x-0');
+                mobileMenuOverlay.classList.add('translate-x-full');
+            }
+            if (mobileMenuBtn && mobileMenuOverlay && closeMobileMenu) {
+                mobileMenuBtn.addEventListener('click', openMobileMenu);
+                closeMobileMenu.addEventListener('click', closeMenu);
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) closeMenu();
+                });
+            }
         </script>
     </body>
 </html> 
